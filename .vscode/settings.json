@@ -1,0 +1,179 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "breadcrumbs.enabled": true,
+  "cSpell.userWords": ["stylelint"], // 📦 Code Spell Checker
+  "css.customData": ["./.vscode/css_custom_data.json"], // at-rule 등 css 관련 규칙을 사용자화 하여 이용하는 데 필요한 설정 파일을 연결하는 옵션
+  "css.lint.unknownAtRules": "ignore", // sass 등과 같은 css 전처리기에서 사용하는 at rule을 css 파일에서 사용했을 때 at-rule-no-unknown 경고가 발생하지 않도록 함. stylelint가 발생시키는 에러 처리는 해당 at rule을 .stylelintrc에서 'at-rule-no-unknown'에 ignoreAtRules 옵션으로 추가할 것
+  "css.lint.zeroUnits": "warning", // css에서 값이 0일 때 '0px'이나 '0em'처럼 단위를 붙이면 경고 발생
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.markdownlint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.definitionLinkOpensInPeek": true,
+  "editor.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true, // 저장할 때마다 포맷을 자동으로 교정
+  "editor.hover.delay": 600,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": true,
+  "editor.minimap.showSlider": "always",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "comments": "#fff",
+    "textMateRules": [
+      {
+        "name": "One Dark italic",
+        "scope": [
+          "comment",
+          "entity.other.attribute-name",
+          "keyword",
+          "markup.underline.link",
+          "storage.modifier",
+          "storage.type",
+          "string.url",
+          "variable.language.super",
+          "variable.language.this"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "name": "One Dark italic reset",
+        "scope": [
+          "keyword.operator",
+          "keyword.other.type",
+          "storage.modifier.import",
+          "storage.modifier.package",
+          "storage.type.built-in",
+          "storage.type.function.arrow",
+          "storage.type.generic",
+          "storage.type.java",
+          "storage.type.primitive"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "editor.unfoldOnClickAfterEndOfLine": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact", // jsx 또는 js에서 emmet을 사용하는 옵션
+    "postcss": "css"
+  },
+  "emmet.preferences": {
+    "css.color.short": true
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.syntaxProfiles": {
+    "postcss": "css" // postcss 문법을 사용하기 위한 옵션
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }], // .eslintrc 파일 위치
+  "explorer.autoReveal": false,
+  "explorer.compactFolders": false, // 하위 폴더가 하나밖에 없을 때 폴더 정렬이 일렬로 나오지 않고 일반적인 방식으로 계층화 되도록 함
+  "explorer.confirmDelete": false, // 파일 삭제 전 확인 모달 띄우기
+  "explorer.confirmDragAndDrop": false, // 파일 드래그 & 드롭 전 확인 모달 띄우기
+  "files.exclude": {
+    "**/.git": false
+  }, // 사이드바에서 파일/폴더 감추기
+  "files.insertFinalNewline": true,
+  "git.fetchOnPull": true,
+  "git.showPushSuccessNotification": true,
+  "githubPullRequests.fileListLayout": "tree",
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": false,
+    "plaintext": false,
+    "vue": false,
+    "yaml": false
+  },
+  "githubNotificationsBell.oauthToken": "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",
+  "gitlens.gitCommands.search.showResultsInSideBar": true,
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+  "liveServer.settings.ChromeDebuggingAttachment": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "html-css-class-completion.enableEmmetSupport": true,
+  "problems.autoReveal": false,
+  "python.jediEnabled": false,
+  "pythonPreview.codeFooterDocs.fontSize": 13,
+  "quokka.automaticRestart": true,
+  "stylelint.validate": [
+    "css",
+    "html",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "source.css.styled",
+    "source.markdown.math",
+    "styled-css",
+    "sugarss",
+    "svelte",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "vue-html",
+    "vue-postcss",
+    "xml",
+    "xsl"
+  ], // stylelint로 유효성을 검증할 언어만 선택
+  "terminal.integrated.defaultProfile.linux": "/bin/zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.lineHeight": 1.4,
+  // "typescript.validate.enable": false, // typescript를 사용하지 않는 프로젝트에서 typescript 관련 오류가 발생할 때 활성화
+  "todo-tree.tree.showScanModeButton": false,
+  "todohighlight.isEnable": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlack": "#000000",
+    "terminal.ansiBlue": "#c9a8fa",
+    "terminal.ansiBrightBlack": "#676767",
+    "terminal.ansiBrightBlue": "#c9a8fa",
+    "terminal.ansiBrightCyan": "#99ecfd",
+    "terminal.ansiBrightGreen": "#59f68d",
+    "terminal.ansiBrightMagenta": "#ff76ff",
+    "terminal.ansiBrightRed": "#ff6d67",
+    "terminal.ansiBrightWhite": "#feffff",
+    "terminal.ansiBrightYellow": "#f3f89d",
+    "terminal.ansiCyan": "#99ecfd",
+    "terminal.ansiGreen": "#59f68d",
+    "terminal.ansiMagneta": "#ff92d0",
+    "terminal.ansiRed": "#ff6d67",
+    "terminal.ansiWhite": "#c7c7c7",
+    "terminal.ansiYellow": "#f3f89d"
+  },
+  "workbench.colorTheme": "Dracula Soft",
+  "workbench.editor.decorations.colors": false,
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "gitlens.rebase" // git rebase -i 실행할 때 띄우는 ui 화면
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "projectManager.git.baseFolders": ["/Users/biniruu/Projects", "/Users/biniruu/Learning"]
+}
