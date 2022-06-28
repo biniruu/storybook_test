@@ -1,41 +1,46 @@
 .storybook-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
   border: 0;
   border-radius: 3em;
   cursor: pointer;
   display: inline-block;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
   line-height: 1;
 }
+
 .storybook-button--primary {
-  color: white;
   background-color: #1ea7fd;
+  color: white;
 }
+
 .storybook-button--secondary {
-  color: #333;
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  box-shadow: rgb(0 0 0 / 15%) 0 0 0 1px inset;
+  color: #333;
 }
+
 .storybook-button--small {
   font-size: 12px;
   padding: 10px 16px;
 }
+
 .storybook-button--medium {
   font-size: 14px;
   padding: 11px 20px;
 }
+
 .storybook-button--large {
   font-size: 16px;
   padding: 12px 24px;
 }
 
 .wrapper {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
-  display: flex;
   align-items: center;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+  display: flex;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   justify-content: space-between;
+  padding: 15px 20px;
 }
 
 svg {
@@ -44,11 +49,11 @@ svg {
 }
 
 h1 {
-  font-weight: 900;
+  display: inline-block;
   font-size: 20px;
+  font-weight: 900;
   line-height: 1;
   margin: 6px 0 6px 10px;
-  display: inline-block;
   vertical-align: top;
 }
 
@@ -63,21 +68,21 @@ button + button {
 }
 
 section {
+  color: #333;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 24px;
-  padding: 48px 20px;
   margin: 0 auto;
   max-width: 600px;
-  color: #333;
+  padding: 48px 20px;
 }
 
 section h2 {
-  font-weight: 900;
+  display: inline-block;
   font-size: 32px;
+  font-weight: 900;
   line-height: 1;
   margin: 0 0 4px;
-  display: inline-block;
   vertical-align: top;
 }
 
@@ -86,13 +91,13 @@ section p {
 }
 
 section a {
-  text-decoration: none;
   color: #1ea7fd;
+  text-decoration: none;
 }
 
 section ul {
-  padding-left: 30px;
   margin: 1em 0;
+  padding-left: 30px;
 }
 
 section li {
@@ -100,32 +105,32 @@ section li {
 }
 
 section .tip {
-  display: inline-block;
-  border-radius: 1em;
-  font-size: 11px;
-  line-height: 12px;
-  font-weight: 700;
   background: #e7fdd8;
+  border-radius: 1em;
   color: #66bf3c;
-  padding: 4px 12px;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 12px;
   margin-right: 10px;
+  padding: 4px 12px;
   vertical-align: top;
 }
 
 section .tip-wrapper {
   font-size: 13px;
   line-height: 20px;
-  margin-top: 40px;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 section .tip-wrapper svg {
   display: inline-block;
   height: 12px;
-  width: 12px;
   margin-right: 4px;
-  vertical-align: top;
   margin-top: 3px;
+  vertical-align: top;
+  width: 12px;
 }
 
 section .tip-wrapper svg path {
@@ -133,4 +138,4 @@ section .tip-wrapper svg path {
 }
 
 
-/*# sourceMappingURL=main.f670686b.css.map*/
+/*# sourceMappingURL=main.fc4c2032.css.map*/
