@@ -2,16 +2,21 @@
 
 .container {
   height: 100vh;
-  position: relative;
+
+  /* position: relative; */
 }
 
 .container canvas {
   left: 0;
-  pointer-events: none;
+
+  /* pointer-events: none;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0; */
+
   width: auto !important;
+
+  /* width: 2400px !important; */
 }
 
 .chart {
@@ -22,4 +27,21 @@
 
 .chart-container {
   margin-top: 2rem;
+}
+
+/* .ant-slider {
+  margin-left: 2rem;
+  margin-right: 2rem;
+} */
+
+.chart-container .ant-slider-handle::after {
+  border: 1px solid grey;
+  border-right-width: 0;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 100vh;
+  left: calc(50% - 0.5px);
+  position: absolute;
+  width: 1px;
 }
