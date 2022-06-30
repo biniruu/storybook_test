@@ -2,10 +2,22 @@
 
 .container {
   height: 100vh;
+  position: relative;
+}
+
+.container canvas {
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto !important;
 }
 
 .chart {
   height: 80vh !important;
+  overflow-x: scroll;
+  width: auto;
 }
 
 .chart-container {

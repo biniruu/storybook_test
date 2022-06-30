@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import './chartjs.css'
 import { Chart as ChartJS, registerables } from 'chart.js'
-import { Chart } from 'react-chartjs-2'
+import { Chart, getElementAtEvent } from 'react-chartjs-2'
 import { faker } from '@faker-js/faker'
 ChartJS.register(...registerables)
 
@@ -11,8 +11,225 @@ export const Chartjs = () => {
   const onChangeSlider = position => {
     console.log('position:', position)
   }
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
-  console.log(arr)
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+
   const data = {
     labels,
     datasets: [
@@ -40,11 +257,67 @@ export const Chartjs = () => {
       },
     ],
   }
+
+  const moveChart = {
+    id: 'moveChart',
+    afterDraw(chart, args, pluginOptions) {
+      const {
+        ctx,
+        chartArea: { left, right, top, bottom, width, height },
+      } = chart
+      // console.log(chart)
+    },
+  }
+
+  const options = {
+    scales: {
+      x: {
+        min: 0,
+        max: 10,
+      },
+      y: {
+        beginAtZero: true,
+      },
+    },
+  }
+
+  const ref = useRef()
+
+  const onClick = () => {
+    console.log('ref fired')
+  }
+
+  useEffect(() => {
+    ref.current.update()
+    const moveScroll = () => {
+      // console.log(getElementAtEvent(ref.current, evt))
+      const { ctx, canvas } = ref.current
+      canvas.addEventListener('click', evt => {
+        const rect = canvas.getBoundingClientRect()
+        const x = (e.clientX = rect.left)
+        const y = (e.clientY = rect.top)
+        console.log('x:', x)
+        console.log('y:', y)
+      })
+    }
+    ref.current.ctx.onclick = moveScroll()
+  }, [])
+
   return (
     <div className={'container'}>
-      <Chart className={'chart'} type="bar" data={data}></Chart>
       <div className="chart-container">
-        <Slider defaultValue={5} onChange={onChangeSlider} />
+        <Chart
+          id="chart"
+          className={'chart'}
+          type="bar"
+          ref={ref}
+          data={data}
+          options={options}
+          plugins={[moveChart]}
+        ></Chart>
+        <div className="chart-container">
+          <Slider defaultValue={5} onChange={onChangeSlider} />
+        </div>
       </div>
     </div>
   )
