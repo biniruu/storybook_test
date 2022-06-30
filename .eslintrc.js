@@ -99,6 +99,7 @@ module.exports = {
     'react/no-direct-mutation-state': 'warn', // state 직접 수정 금지
     'react/no-unescaped-entities': 'warn', // jsx 안에서 escape 되지 않은 entity 코드를 사용했을 때 경고 발생
     'react/no-unused-state': 'warn', // 사용되지 않는 state
+    'react/prop-types': 'off',
     'react/self-closing-comp': ['warn', { component: true, html: false }],
     'react/static-property-placement': ['error', 'static public field'], // defaultProps를 클래스 내부에 정의하도록 허용
     'react-hooks/rules-of-hooks': 'error',

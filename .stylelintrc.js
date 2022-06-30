@@ -68,6 +68,7 @@ module.exports = {
     'selector-attribute-operator-space-after': 'never',
     'selector-attribute-operator-space-before': 'never',
     'selector-attribute-quotes': 'always', // 'never'로 하면 "Unclosed string (CssSyntaxError)" 에러 발생. 아마도 eslint의 rule과 충돌하는 듯.
+    'selector-class-pattern': ['[a-zA-Z_-]+', { resolveNestedSelectors: true }],
     'selector-combinator-space-after': 'always',
     'selector-combinator-space-before': 'always',
     'selector-descendant-combinator-no-non-space': true,
