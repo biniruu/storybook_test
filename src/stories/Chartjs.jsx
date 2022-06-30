@@ -22,240 +22,67 @@ export const Chartjs = () => {
     'August',
     'September',
     'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    // 'November',
+    // 'December',
   ]
 
+  const arr = Array(300)
+    .fill(0)
+    .reduce(acc => {
+      const arrData = [
+        {
+          type: 'line',
+          label: 'Dataset 1',
+          borderColor: 'rgb(255, 99, 132)',
+          borderWidth: 2,
+          fill: false,
+          data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        },
+        {
+          type: 'bar',
+          label: 'Dataset 2',
+          backgroundColor: 'rgb(75, 192, 192)',
+          data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+          borderColor: 'white',
+          borderWidth: 2,
+        },
+        {
+          type: 'bar',
+          label: 'Dataset 3',
+          backgroundColor: 'rgb(53, 162, 235)',
+          data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        },
+      ]
+      return [...acc, ...arrData]
+    }, [])
+  console.log(arr.length)
   const data = {
     labels,
-    datasets: [
-      {
-        type: 'line',
-        label: 'Dataset 1',
-        borderColor: 'rgb(255, 99, 132)',
-        borderWidth: 2,
-        fill: false,
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      },
-      {
-        type: 'bar',
-        label: 'Dataset 2',
-        backgroundColor: 'rgb(75, 192, 192)',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        borderColor: 'white',
-        borderWidth: 2,
-      },
-      {
-        type: 'bar',
-        label: 'Dataset 3',
-        backgroundColor: 'rgb(53, 162, 235)',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      },
-    ],
+    // datasets: [
+    //   {
+    //     type: 'line',
+    //     label: 'Dataset 1',
+    //     borderColor: 'rgb(255, 99, 132)',
+    //     borderWidth: 2,
+    //     fill: false,
+    //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+    //   },
+    //   {
+    //     type: 'bar',
+    //     label: 'Dataset 2',
+    //     backgroundColor: 'rgb(75, 192, 192)',
+    //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+    //     borderColor: 'white',
+    //     borderWidth: 2,
+    //   },
+    //   {
+    //     type: 'bar',
+    //     label: 'Dataset 3',
+    //     backgroundColor: 'rgb(53, 162, 235)',
+    //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+    //   },
+    // ],
+    datasets: arr,
   }
 
   const moveChart = {
@@ -269,28 +96,31 @@ export const Chartjs = () => {
     },
   }
 
-  const options = {
-    scales: {
-      x: {
-        min: 0,
-        max: 10,
-      },
-      y: {
-        beginAtZero: true,
-      },
-    },
-  }
+  // const options = {
+  //   scales: {
+  //     x: {
+  //       min: 0,
+  //       max: 10,
+  //     },
+  //     y: {
+  //       beginAtZero: true,
+  //     },
+  //   },
+  //   // onClick() {
+  //   //   console.log('click')
+  //   // },
+  // }
 
   const ref = useRef()
 
-  const onClick = () => {
-    console.log('ref fired')
+  const onClick = evt => {
+    // console.log('ref fired')
+    console.log(getElementAtEvent(ref.current, evt))
   }
 
   useEffect(() => {
     ref.current.update()
     const moveScroll = () => {
-      // console.log(getElementAtEvent(ref.current, evt))
       const { ctx, canvas } = ref.current
       canvas.addEventListener('click', evt => {
         const rect = canvas.getBoundingClientRect()
@@ -306,15 +136,7 @@ export const Chartjs = () => {
   return (
     <div className={'container'}>
       <div className="chart-container">
-        <Chart
-          id="chart"
-          className={'chart'}
-          type="bar"
-          ref={ref}
-          data={data}
-          options={options}
-          plugins={[moveChart]}
-        ></Chart>
+        <Chart id="chart" className={'chart'} type="bar" ref={ref} data={data} plugins={[moveChart]}></Chart>
         <div className="chart-container">
           <Slider defaultValue={5} onChange={onChangeSlider} />
         </div>
