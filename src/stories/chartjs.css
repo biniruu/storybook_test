@@ -1,0 +1,13 @@
+@import '../../node_modules/antd/dist/antd.css';
+
+.container {
+  height: 100vh;
+}
+
+.chart {
+  height: 80vh !important;
+}
+
+.chart-container {
+  margin-top: 2rem;
+}

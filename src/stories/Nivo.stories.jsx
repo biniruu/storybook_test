@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { Chart } from './Chart'
+import { Nivo } from './Nivo'
 
 export default {
-  title: 'Example/Chart',
-  component: Chart,
+  title: 'Example/Nivo',
+  component: Nivo,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
 }
 
-const Template = args => <Chart {...args} />
+const Template = args => <Nivo {...args} />
 export const Data = Template.bind([])
 Data.args = [
   {

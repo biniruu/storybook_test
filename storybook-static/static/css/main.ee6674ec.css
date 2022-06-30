@@ -34,6 +34,18 @@
   padding: 12px 24px;
 }
 
+.container {
+  height: 100vh;
+}
+
+.chart {
+  height: 80vh !important;
+}
+
+.chart-container {
+  margin-top: 2rem;
+}
+
 .wrapper {
   align-items: center;
   border-bottom: 1px solid rgb(0 0 0 / 10%);
@@ -66,6 +78,19 @@ button + button {
   font-size: 14px;
   margin-right: 10px;
 }
+
+.wrapper {
+  height: 100vh;
+  position: relative;
+}
+
+.wrapper2 {
+  z-index: 10;
+}
+
+/* .container {
+  position: relative;
+} */
 
 section {
   color: #333;
@@ -138,4 +163,4 @@ section .tip-wrapper svg path {
 }
 
 
-/*# sourceMappingURL=main.fc4c2032.css.map*/
+/*# sourceMappingURL=main.ee6674ec.css.map*/

@@ -175,5 +175,6 @@
     "git-rebase-todo": "gitlens.rebase" // git rebase -i 실행할 때 띄우는 ui 화면
   },
   "workbench.iconTheme": "material-icon-theme",
-  "projectManager.git.baseFolders": ["/Users/biniruu/Projects", "/Users/biniruu/Learning"]
+  "projectManager.git.baseFolders": ["/Users/biniruu/Projects", "/Users/biniruu/Learning"],
+  "cSpell.words": ["Nivo"]
 }
