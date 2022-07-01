@@ -15,8 +15,6 @@
   top: 0; */
 
   width: auto !important;
-
-  /* width: 2400px !important; */
 }
 
 .chart {
@@ -28,11 +26,6 @@
 .chart-container {
   margin-top: 2rem;
 }
-
-/* .ant-slider {
-  margin-left: 2rem;
-  margin-right: 2rem;
-} */
 
 .chart-container .ant-slider-handle::after {
   border: 1px solid grey;
