@@ -10,10 +10,9 @@ import { Slider, Button } from 'antd'
 export const Chartjs = () => {
   const [position, setPosition] = useState(0)
   const updatePosition = value => {
-    if (value > 8635 || value < 0) {
-      return false
+    if (value <= 8977 && value >= 0) {
+      setPosition(value)
     }
-    setPosition(value)
   }
   // const onChangeSlider = val => {
   //   console.log('position:', val)
@@ -22,7 +21,11 @@ export const Chartjs = () => {
 
   const labels = Array(9000)
     .fill(0)
-    .map(() => faker.datatype.number({ min: 100, max: 10000 }))
+    // .map(() => faker.datatype.number({ min: 100, max: 10000 }))
+    .reduce((acc, curr, index) => {
+      acc.push(`D+${index + 1}`)
+      return acc
+    }, [])
 
   const handleEvent = val => {
     console.log('handleEvent:', val)
@@ -54,6 +57,12 @@ export const Chartjs = () => {
         backgroundColor: 'rgb(53, 162, 235)',
         data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
       },
+      {
+        type: 'scatter',
+        label: 'Dataset 4',
+        backgroundColor: 'rgb(250, 173, 20)',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+      },
     ],
   }
 
@@ -68,14 +77,29 @@ export const Chartjs = () => {
   //   },
   // }
 
+  const maxScale = 23
+
   const options = {
+    maintainAspectRatio: false,
     scales: {
       x: {
         min: 0,
-        max: 365,
+        max: maxScale,
+        // ticks: {
+        //   // maxTicksLimit: maxScale,
+        //   callback(val, idx) {
+        //     // console.log('ticks', val, idx)
+        //     return this.getLabelForValue(val)
+        //     // return idx % 2 === 0 ? this.getLabelForValue(val) : ''
+        //   },
+        // },
       },
       y: {
         beginAtZero: true,
+        ticks: {
+          // forces step size to be 50 units
+          stepSize: 25,
+        },
       },
     },
     onClick(evt) {
@@ -88,6 +112,7 @@ export const Chartjs = () => {
   const ref = useRef()
 
   const btnClick = () => {
+    console.log('btnClick', ref.current)
     updatePosition(position + 1)
   }
 
@@ -96,12 +121,9 @@ export const Chartjs = () => {
   }, [])
 
   useEffect(() => {
-    if (options.scales.x.min < position) {
-      options.scales.x.max = options.scales.x.max + position
-    } else {
-      options.scales.x.max = options.scales.x.max - position
-    }
-    options.scales.x.min = position
+    ref.current.config.options.scales.x.min = position
+    ref.current.config.options.scales.x.max = position + maxScale
+    ref.current.update()
   }, [position])
 
   return (
@@ -116,7 +138,7 @@ export const Chartjs = () => {
           // plugins={[moveChart]}
           options={options}
         ></Chart>
-        <div className="chart-container">
+        <div className="slider-container">
           <Slider defaultValue={position} min={0} max={8635} onAfterChange={handleEvent} />
         </div>
         <div className="button-container">
