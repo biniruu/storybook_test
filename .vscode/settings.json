@@ -176,5 +176,5 @@
   },
   "workbench.iconTheme": "material-icon-theme",
   "projectManager.git.baseFolders": ["/Users/biniruu/Projects", "/Users/biniruu/Learning"],
-  "cSpell.words": ["antd", "Chartjs", "Nivo", "registerables"]
+  "cSpell.words": ["antd", "Chartjs", "Lables", "Nivo", "registerables"]
 }
