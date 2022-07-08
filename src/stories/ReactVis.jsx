@@ -3,6 +3,7 @@ import '../../node_modules/react-vis/dist/style.css'
 
 import { Button, Slider } from 'antd'
 import { HorizontalGridLines, VerticalGridLines, VerticalRectSeries, XAxis, XYPlot, YAxis } from 'react-vis'
+import { Line, LineChart } from 'recharts'
 import React, { memo, useRef, useState } from 'react'
 
 import Factory from './assets/factory.png'
