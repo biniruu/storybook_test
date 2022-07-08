@@ -1,0 +1,63 @@
+@import '../../node_modules/antd/dist/antd.css';
+
+.container {
+  background: rgb(255 255 255);
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
+}
+
+.container canvas {
+  left: 0;
+}
+
+.slider-container {
+  margin-top: 2rem;
+}
+
+.contents {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.zone {
+  background: black;
+  border-radius: 50%;
+  height: 20px;
+  position: absolute;
+  width: 20px;
+}
+
+.zone1 {
+  background: yellow;
+  left: 46.5%;
+  top: 45.5%;
+}
+
+.zone2 {
+  background: green;
+  left: 52.5%;
+  top: 39%;
+}
+
+.zone3 {
+  background: red;
+  left: 38.2%;
+  top: 29.9%;
+}
+
+.zone4 {
+  background: blue;
+  left: 68%;
+  top: 49%;
+}
+
+.active {
+  transform: scale(2);
+}
+
+.img {
+  height: auto;
+  width: 100vw;
+}
