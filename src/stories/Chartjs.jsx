@@ -2,7 +2,7 @@ import './chartjs.css'
 
 import { Button, Slider } from 'antd'
 import { Chart as ChartJS, registerables } from 'chart.js'
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Chart } from 'react-chartjs-2'
 import Factory from './assets/factory.png'
@@ -10,6 +10,7 @@ import { faker } from '@faker-js/faker'
 
 ChartJS.register(...registerables)
 
+// eslint-disable-next-line react/display-name
 export const Chartjs = memo(() => {
   const [warnChart1, setWarnChart1] = useState('')
   const [warnChart2, setWarnChart2] = useState('')
@@ -64,14 +65,35 @@ export const Chartjs = memo(() => {
     console.log('switch fired')
   }
 
-  const labels = Array(9000)
-    .fill(0)
-    .reduce((acc, curr, index) => {
-      acc.push(`D+${index + 1}`)
-      return acc
-    }, [])
+  const labels = useMemo(() => {
+    console.log('labels fired')
+    const _lables = Array(9000)
+      .fill(0)
+      .reduce((acc, curr, index) => {
+        acc.push(`D+${index + 1}`)
+        // acc.push(index + 1)
+        return acc
+      }, [])
+    return _lables
+  }, [])
+
+  // TODO: remove
+  // const labels = Array(9000)
+  //   .fill(0)
+  //   .reduce((acc, curr, index) => {
+  //     acc.push(`D+${index + 1}`)
+  //     // acc.push(index + 1)
+  //     return acc
+  //   }, [])
 
   const scatter = ['undefined', 'undefined', 'undefined', 30, 50]
+
+  const fakeData = useMemo(() => {
+    const numbers = labels.map(() => faker.datatype.number({ min: 0, max: 100 }))
+    return numbers
+  }, [])
+
+  // const fakeData = labels.map(() => faker.datatype.number({ min: 0, max: 100 }))
 
   const data = {
     labels,
@@ -88,13 +110,13 @@ export const Chartjs = memo(() => {
         borderColor: 'rgb(255, 99, 132)',
         borderWidth: 2,
         fill: false,
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+        data: fakeData,
       },
       {
         type: 'bar',
         label: '설비동',
         backgroundColor: 'rgb(75, 192, 192)',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+        data: fakeData,
         borderColor: 'white',
         borderWidth: 2,
       },
@@ -102,7 +124,7 @@ export const Chartjs = memo(() => {
         type: 'bar',
         label: '봉천동',
         backgroundColor: 'rgb(53, 162, 235)',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+        data: fakeData,
       },
     ],
   }
@@ -119,8 +141,10 @@ export const Chartjs = memo(() => {
   // }
 
   const btnClick = () => {
-    console.log('btnClick', ref.current)
-    updateSliderValue(sliderValue.current + 1)
+    handleEvent(sliderValue.current + 1)
+  }
+  const prevBtnClick = () => {
+    handleEvent(sliderValue.current - 1)
   }
 
   // const setPickup = evt => {
@@ -130,6 +154,35 @@ export const Chartjs = memo(() => {
   //   // return _data
   //   console.log(_data)
   // }
+
+  const marks = {
+    300: 'warning1',
+    1800: {
+      style: {
+        top: '0px',
+      },
+      label: 'warning2',
+    },
+    2200: 'warning3',
+    3400: 'warning4',
+  }
+
+  // const callback = useCallback(function (val) {
+  //   // console.log('callback:', this)
+  //   // if (val >= sliderValue.current && val <= sliderValue.current + maxScale) {
+  //   //   console.log('ticks', val)
+  //   //   return val
+  //   // }
+  //   // console.log('out of range', val)
+  //   // // return sliderValue.current + val
+  //   // return val
+  //   if (val >= sliderValue.current && val <= sliderValue.current + maxScale) {
+  //     console.log('ticks', val)
+  //     return this.getLabelForValue(val)
+  //   }
+  //   console.log('out of range', val)
+  //   return this.getLabelForValue(sliderValue.current + val)
+  // }, [])
 
   const options = {
     maintainAspectRatio: false,
@@ -145,13 +198,20 @@ export const Chartjs = memo(() => {
         ticks: {
           // maxTicksLimit: maxScale,
           callback(val, idx) {
-            if (val >= sliderValue.current && val < sliderValue.current + maxScale) {
+            if (val >= sliderValue.current && val <= sliderValue.current + maxScale) {
               console.log('ticks', val)
               return this.getLabelForValue(val)
             }
             console.log('out of range', val)
             return this.getLabelForValue(sliderValue.current + val)
           },
+          // callback(val) {
+          //   useEffect(function (val) {
+          //     const self = this
+          //     ticksCallback(val, self)
+          //   })
+          // },
+          // callback,
         },
       },
       y: {
@@ -172,19 +232,15 @@ export const Chartjs = memo(() => {
   }
 
   const ref = useRef(null)
-  const dot1Ref = useRef(null)
-  const dot2Ref = useRef(null)
-  const dot3Ref = useRef(null)
-  const dot4Ref = useRef(null)
 
   return (
     <>
       <div className="contents">
         <div className="contents-wrapper">
-          <div className={['zone', 'zone1', warnChart1].join(' ')} ref={dot1Ref}></div>
-          <div className={['zone', 'zone2', warnChart2].join(' ')} ref={dot2Ref}></div>
-          <div className={['zone', 'zone3', warnChart3].join(' ')} ref={dot3Ref}></div>
-          <div className={['zone', 'zone4', warnChart4].join(' ')} ref={dot4Ref}></div>
+          <div className={['zone', 'zone1', warnChart1].join(' ')}></div>
+          <div className={['zone', 'zone2', warnChart2].join(' ')}></div>
+          <div className={['zone', 'zone3', warnChart3].join(' ')}></div>
+          <div className={['zone', 'zone4', warnChart4].join(' ')}></div>
           <img src={Factory} alt="" className={'img'} />
         </div>
         <div className={'container'}>
@@ -200,9 +256,12 @@ export const Chartjs = memo(() => {
             ></Chart>
           </div>
           <div className="slider-container">
-            <Slider defaultValue={0} min={0} max={8635} onAfterChange={handleEvent} />
+            <Slider marks={marks} defaultValue={0} min={0} max={8635} onAfterChange={handleEvent} />
           </div>
           <div className="button-container">
+            <Button type="primary" onClick={prevBtnClick}>
+              prev
+            </Button>
             <Button type="primary" onClick={btnClick}>
               next
             </Button>
