@@ -2,7 +2,7 @@ import './chartjs.css'
 
 import { Button, Slider } from 'antd'
 import { Chart as ChartJS, registerables } from 'chart.js'
-import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { memo, useMemo, useRef, useState } from 'react'
 
 import { Chart } from 'react-chartjs-2'
 import Factory from './assets/factory.png'
@@ -17,7 +17,7 @@ export const Chartjs = memo(() => {
   const [warnChart3, setWarnChart3] = useState('')
   const [warnChart4, setWarnChart4] = useState('')
 
-  const maxScale = 23
+  const maxScale = 143
   const sliderValue = useRef(0)
 
   const updateSliderValue = value => {

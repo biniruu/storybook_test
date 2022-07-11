@@ -1,17 +1,6 @@
 import './recharts.css'
 
-import {
-  Area,
-  Bar,
-  CartesianGrid,
-  ComposedChart,
-  Legend,
-  Line,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
+import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Button, Slider } from 'antd'
 import React, { memo, useState } from 'react'
 
@@ -32,19 +21,20 @@ const _lables = Array(9000)
     return acc
   }, [])
 
-const division = (배열, n개씩) => {
-  const length = 배열.length
-  const divide = Math.floor(length / n개씩) + (Math.floor(length % n개씩) > 0 ? 1 : 0)
+const division = (arr, nth) => {
+  const length = arr.length
+  const divide = Math.floor(length / nth) + (Math.floor(length % nth) > 0 ? 1 : 0)
   const newArray = []
 
   for (let i = 0; i <= divide; i++) {
-    newArray.push(배열.splice(0, n개씩))
+    newArray.push(arr.splice(0, nth))
   }
 
   return newArray
 }
-
-const labels = division(_lables, 24)
+// console.log('_lables:', _lables.splice(1, 50))
+const labels = division(_lables, 32)
+console.log('labels:', labels)
 
 const marks = {}
 
@@ -61,11 +51,11 @@ labels.forEach((arr, idx) => {
   }
 })
 
-const RenderLineChart = memo(({ current }) => {
+const RenderLineChart = ({ current }) => {
   const data = labels[current]
 
   return (
-    <ResponsiveContainer width="100%" height="100%" debounce={300}>
+    <ResponsiveContainer width="100%" height="100%">
       <ComposedChart
         width={500}
         height={400}
@@ -78,17 +68,17 @@ const RenderLineChart = memo(({ current }) => {
         }}
       >
         <CartesianGrid stroke="#f5f5f5" />
-        <XAxis dataKey="name" scale="band" />
+        <XAxis dataKey="name" scale="band" interval={0} />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="amt" barSize={20} fill="#008000" />
-        <Bar dataKey="uv" barSize={20} fill="#413ea0" />
+        <Bar dataKey="amt" barSize={10} fill="#008000" />
+        <Bar dataKey="uv" barSize={10} fill="#413ea0" />
         <Line type="monotone" dataKey="pv" stroke="#ff7300" />
       </ComposedChart>
     </ResponsiveContainer>
   )
-})
+}
 
 // eslint-disable-next-line react/display-name
 export const Recharts = memo(() => {
@@ -98,14 +88,8 @@ export const Recharts = memo(() => {
   const [warnChart4, setWarnChart4] = useState('')
   const [value, setValue] = useState(0)
 
-  const updateSliderValue = value => {
-    if (value <= 8977 && value >= 0) {
-      setValue(value)
-    }
-  }
-
   const handleEvent = val => {
-    updateSliderValue(val)
+    setValue(val)
     setWarnChart1('')
     setWarnChart2('')
     setWarnChart3('')
@@ -158,8 +142,10 @@ export const Recharts = memo(() => {
               defaultValue={0}
               min={0}
               max={labels.length - 2}
+              // value={value}
               onAfterChange={handleEvent}
               tipFormatter={tooltip}
+              // tooltipVisible
             />
           </div>
           <div className="button-container">
